@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THALA Validation</title>
+    <script>
+        function validateInput() {
+            var userInput = document.getElementById("inputField").value;
+
+            if (/^\d+$/.test(userInput)) {
+                // Enter your name or year pf birth:
+                var sum = userInput.split('').reduce((acc, digit) => acc + parseInt(digit), 0);
+                if (sum === 7) {
+                    alert(+userInput+"is THALA for a reason");
+                } else {
+                    alert(+userInput+" is not a THALA");
+                }
+            } else if (/^[a-zA-Z]+$/.test(userInput)) {
+                // Check if characters are exactly 7
+                if (userInput.length === 7) {
+                    alert(+userInput+" is THALA for a reason");
+                } else {
+                    alert(+userInput+" is not a THALA ");
+                }
+            } else {
+                alert(+userInput+" is not a THALA");
+            }
+        }
+    </script>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: rgb(100,150,500);
+        background-image:
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    form {
+        background-color: rgb(105,500,150);
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+    <form>
+        <label for="inputField">Enter your name or year of birth:</label>
+        <input type="text" id="inputField" name="inputField" required>
+        <button type="button" onclick="validateInput()">Search</button>
+    </form>
+</body>
+</html>
